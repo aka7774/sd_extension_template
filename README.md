@@ -12,6 +12,11 @@
 - pipとxformersの両立が難しいっぽい
 - 3.8のEoLは2024年10月らしい...
 
+### 3.8と3.9と3.10の違い
+
+- 3.8の__file__は相対パス os.path.abspath(__file__) で絶対パスに出来る
+- 3.9以前はmatch構文が使えない
+
 ## scripts.basedir()は使えない
 
 - 本当はExtension直下を示して欲しいのだが常にwebui直下を示している
