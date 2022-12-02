@@ -1,6 +1,15 @@
 # sd_extension_template
 
 - Extension開発で変に詰まったところをテンプレ化していく
+- 公式ドキュメント
+  - https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Developing-extensions
+
+## Python 3.8以降か3.9以降に対応する
+
+- 3.10をすんなり導入できるのはWindowsくらい
+- ColabやROCmなどの一部環境で3.8ユーザーが残っている
+- condaユーザーは3.9までしか上げられない
+- pipとxformersの両立が難しいっぽい
 
 ## scripts.basedir()は使えない
 
