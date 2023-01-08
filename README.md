@@ -139,10 +139,11 @@ def example_func():
 - Extensionの中に入れたほうが綺麗ではある。
 
 ```python
-def example_func():
+def get_input_dir():
     import pathlib
     p = pathlib.Path(__file__).parts[-4:-2]
     input_dir = os.path.join(p[0], p[1], 'input')
+    return input_dir
 ```
 
 ### 設定ファイルやログファイルを置く
@@ -154,7 +155,8 @@ def example_func():
 def get_config_path():
     import pathlib
     p = pathlib.Path(__file__).parts[-4:-2]
-    input_dir = os.path.join(p[0], p[1], 'json', 'config.json')
+    config_path = os.path.join(p[0], p[1], 'json', 'config.json')
+    return config_path
 ```
 
 # Gradio
