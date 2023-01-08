@@ -95,6 +95,9 @@ if not os.path.exists(checked_path):
   - その他: 上記3つの指定が無いもの
 - おそらく gradio の起動時に全ファイルが一度読み込まれる。
 
+- タブが最も使われている
+  - タブだらけになって邪魔なので、せめてタブ名は短くしましょう
+
 ### scripts/ 内のimport
 
 ```python
