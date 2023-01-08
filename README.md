@@ -52,7 +52,6 @@
 
 - インストール時と起動時に毎回呼ばれる。
 - なので重たい処理は厳禁。
-- 込み入った処理は、成功時にフラグとなるファイルを置くと良い。
 
 基本は launch.pyを使って pip install を行う程度。
 
@@ -63,9 +62,18 @@ if not launch.is_installed("yaml"):
     launch.run_pip("install yaml", desc='yaml')
 ```
 
-install.pyの中では
-- __file__が使えない
-- scripts.basedir()は使えない
+込み入った処理は、成功時にフラグとなるファイルを置くと良い。
+
+```python
+import pathlib
+p = pathlib.Path(__file__).parts[-3:-1]
+checked_path = os.path.join(p[0], p[1], 'install.checked')
+if not os.path.exists(checked_path):
+    # 込み入った処理...
+    pathlib.Path(checked_path).write_text('1')
+```
+
+- install.pyの中ではscripts.basedir()は使えない
 
 ## preload.py
 
@@ -73,8 +81,6 @@ install.pyの中では
 - 基本的には使わないほうが良い。
   - コマンドラインオプションを追加してからExtensionを外すと1111本体が起動しなくなる。
   - 自分自身の場所を知る方法が無い。
-
-- 本当はExtension直下を示して欲しいのだが常にwebui直下を示している
 
 ## scripts/ 内にpyファイルを置く
 
