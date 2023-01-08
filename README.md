@@ -134,6 +134,14 @@ def example_func():
     example3 = importlib.import_module(f"{p[0]}.{p[1]}.py2.example3")
 ```
 
+### コマンドライン用に書かれたPythonをExtension化する
+
+- ファイルを持ってきて設置する
+- 可能ならリポジトリ名のハイフンをアンダーバーに直す
+- 全部のimport文を相対パス指定に書き換える
+- __main__の内容を自作のUIからimportかimportlibで呼び出す
+- sys.argvやそのparser部分をUIかファイルで入力できるようにする
+
 ## ファイルを置かせる、ファイルを出力する
 
 - Extensionの中に入れたほうが綺麗ではある。
